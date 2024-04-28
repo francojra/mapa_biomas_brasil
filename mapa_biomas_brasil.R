@@ -42,20 +42,24 @@ m <- ggplot() +
                size = 2, fontface = "bold", color = "#f7fcb9") +
   scale_fill_manual(values = c("#1E5A46", "#B38711", "#AF4F2F", 
                                "#1E395F", "#59385C", "#732F30")) +
-  annotation_north_arrow(style = north_arrow_nautical(text_size = 7.5,
-                                                      text_face = "bold"),
+  annotation_north_arrow(style = 
+                north_arrow_nautical(text_size = 7.5,
+                          text_face = "bold", family = "serif"),
                          width = unit(1, "cm"),
                          height = unit(1, "cm")) +
   annotation_scale(location = "br", text_face = "bold",
-                   height = unit(0.15, "cm")) +
+                   height = unit(0.15, "cm"), family = "serif") +
   labs(x = "Longitude", y = "Latitude", 
        title = "Biomas do Brasil", fill = "") +
   theme_minimal() +
   theme(axis.text = element_text(color = "black", 
-                                 face = "bold", size = 8),
+                          face = "bold", size = 8,
+                          family = "serif"),
         axis.title = element_text(color = "black", 
-                                  size = 9),
-        legend.position = c(0.8, 1))
+                           face = "bold", size = 9,
+                           family = "serif"),
+        legend.position = c(0.88, 0.24),
+        legend.text = element_text(family = "serif"))
 m
 
 # Salvar mapa ------------------------------------------------------------------------------------------------------------------------------
