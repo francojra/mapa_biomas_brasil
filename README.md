@@ -1,2 +1,7 @@
-# mapa_biomas_brasil
-Script com nomes dos pacotes necessários para criar o mapa, dados shapefile dos biomas e das regiões do Brasil e códigos para produção do mapa com ggplot2.
+# Mapa de Biomas do Brasil
+
+## Mapa Biomas do Brasil 
+## Autora do script: Jeanne Franco 
+## Data: 28/04/2024
+
+### Tópicos do script
