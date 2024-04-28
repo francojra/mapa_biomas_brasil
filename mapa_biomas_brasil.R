@@ -6,9 +6,9 @@
 # Carregar pacotes -------------------------------------------------------------------------------------------------------------------------
 
 library(sf) # Permite ler arquivos shapefile
-library(ggspatial)
-library(tidyverse)
-library(cols4all)
+library(ggspatial) # Adicionar símbolo de orientação e escala
+library(tidyverse) # Produzir mapa com ggplot2
+library(cols4all) # Selecionar cores do mapa
 
 # Carregar dados shapefile -----------------------------------------------------------------------------------------------------------------
 
@@ -17,16 +17,14 @@ library(cols4all)
 ## Dados biomas
 
 my_biom <- read_sf("lm_bioma_250.shp") 
-
 view(my_biom)
-
 plot(st_geometry(my_biom))
 
 ## Dados regiões do Brasil
 
 my_br <- read_sf("BR_UF_2022.shp") 
-
-View(my_br)
+view(my_br)
+plot(st_geometry(my_br))
 
 # Mapa -----------------------------------------------------------------------------------------------------------------
 
@@ -37,11 +35,11 @@ c4a_types()
 
 ## Criar mapa
 
-ggplot() + 
+m <- ggplot() + 
   geom_sf(data = my_br) +
   geom_sf(data = my_biom, aes(fill = Bioma), color = "#f7fcb9") +
   geom_sf_text(data = my_br, aes(label = SIGLA_UF), 
-               size = 1.5, fontface = "bold") +
+               size = 1.5, fontface = "bold", color = "#f7fcb9") +
   scale_fill_manual(values = c("#1E5A46", "#B38711", "#AF4F2F", 
                                "#1E395F", "#59385C", "#732F30")) +
   annotation_north_arrow(style = north_arrow_nautical(text_size = 7.5,
@@ -50,9 +48,21 @@ ggplot() +
                          height = unit(1, "cm")) +
   annotation_scale(location = "br", text_face = "bold",
                    height = unit(0.15, "cm")) +
-  labs(x = "Longitude", y = "Latitude") +
+  labs(x = "Longitude", y = "Latitude", title = "Biomas do Brasil") +
   theme_minimal() +
   theme(axis.text = element_text(color = "black", 
                                  face = "bold", size = 8),
         axis.title = element_text(color = "black", 
-                                  size = 9))
+                                  size = 9),
+        legend.position = c(0.8, 0.8))
+m
+
+# Salvar mapa ------------------------------------------------------------------------------------------------------------------------------
+
+ggsave("m.jpg", dpi = 300,
+       width = 35, height = 15, 
+       units = "cm", m)
+
+ggsave("m.pdf", dpi = 300,
+       width = 35, height = 15, 
+       units = "cm", m)
