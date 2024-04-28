@@ -39,7 +39,7 @@ m <- ggplot() +
   geom_sf(data = my_br) +
   geom_sf(data = my_biom, aes(fill = Bioma), color = "#f7fcb9") +
   geom_sf_text(data = my_br, aes(label = SIGLA_UF), 
-               size = 1.5, fontface = "bold", color = "#f7fcb9") +
+               size = 2, fontface = "bold", color = "#f7fcb9") +
   scale_fill_manual(values = c("#1E5A46", "#B38711", "#AF4F2F", 
                                "#1E395F", "#59385C", "#732F30")) +
   annotation_north_arrow(style = north_arrow_nautical(text_size = 7.5,
@@ -48,13 +48,14 @@ m <- ggplot() +
                          height = unit(1, "cm")) +
   annotation_scale(location = "br", text_face = "bold",
                    height = unit(0.15, "cm")) +
-  labs(x = "Longitude", y = "Latitude", title = "Biomas do Brasil") +
+  labs(x = "Longitude", y = "Latitude", 
+       title = "Biomas do Brasil", fill = "") +
   theme_minimal() +
   theme(axis.text = element_text(color = "black", 
                                  face = "bold", size = 8),
         axis.title = element_text(color = "black", 
                                   size = 9),
-        legend.position = c(0.8, 0.8))
+        legend.position = c(0.8, 1))
 m
 
 # Salvar mapa ------------------------------------------------------------------------------------------------------------------------------
