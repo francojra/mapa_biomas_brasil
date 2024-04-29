@@ -43,7 +43,7 @@ m <- ggplot() +
   scale_fill_manual(values = c("#1E5A46", "#B38711", "#AF4F2F", 
                                "#1E395F", "#59385C", "#732F30")) +
   annotation_north_arrow(style = 
-                north_arrow_nautical(text_size = 8,
+                north_arrow_nautical(text_size = 7.5,
                           text_face = "bold"),
                          width = unit(1, "cm"),
                          height = unit(1, "cm")) +
@@ -53,17 +53,17 @@ m <- ggplot() +
   ggtitle("Biomas do Brasil") +
   theme_minimal() +
   theme(axis.text = element_text(color = "black", 
-                          face = "bold", size = 8,
+                          face = "bold", size = 8.5,
                           family = "serif"),
         axis.title = element_text(color = "black", 
-                           face = "bold", size = 12,
+                           face = "bold", size = 10,
                            family = "serif"),
         title = element_text(color = "black", 
-                           face = "bold", size = 12,
+                           face = "bold", size = 10,
                            family = "serif"),
         legend.position = c(0.88, 0.24),
         legend.text = element_text(family = "serif",
-                        face = "bold", size = 12))
+                        face = "bold", size = 10))
 m
 
 # Salvar mapa ------------------------------------------------------------------------------------------------------------------------------
