@@ -33,6 +33,13 @@ plot(st_geometry(my_br))
 c4a_table(n = 12, type = "cat")
 c4a_types()
 
+"#04A3BD"
+"#F0BE3D"
+"#931E18"
+"#DA7901"
+"#247D3F"
+"#20235B"
+
 ## Criar mapa
 
 m <- ggplot() + 
@@ -75,3 +82,4 @@ ggsave("m.jpg", dpi = 300,
 ggsave("m.pdf", dpi = 300,
        width = 35, height = 15, 
        units = "cm", m)
+
